@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './Login.css'
 import styled from 'styled-components';
+import axios from 'axios';
+import './Login.css'
+
 const LoginFormContainer = styled.div`
 display: grid;
 grid-template-columns: 1fr minmax(200px, 400px) 1fr;
@@ -61,13 +62,11 @@ border-radius: 5px;
 box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 `;
 
-
 const Login = () => {
     const [emailAddress, setEmailAddress] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
-
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -91,6 +90,7 @@ const Login = () => {
 
     return (
         <LoginFormContainer>
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
             <StyledForm onSubmit={handleLogin}>
                 <h2>Welcome Back!</h2>
                 <StyledSection>
@@ -117,7 +117,6 @@ const Login = () => {
                     <StyledButton type="submit">Login</StyledButton>
                 </div>
             </StyledForm>
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
         </LoginFormContainer>
     )
 }
