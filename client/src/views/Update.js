@@ -1,45 +1,46 @@
 import React from 'react'
-import CarForm from '../components/CarForm'
-import  axios from 'axios'
+import Form from '../components/Form'
+import DeleteButton from '../components/DeleteButton'
+import axios from 'axios'
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom' 
+import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 
 const Update = () => {
   const Navigate = useNavigate()
-  const [users, setUsers] = useState([])
-  const {carId} = useParams()
+  const [post, setPost] = useState([])
+  const { id } = useParams()
   const [loaded, setLoaded] = useState(false)
   const [errors, setErrors] = useState([])
-  useEffect(() => {
-    axios.get('http://localhost:8000/api/cars/' + carId)
-    .then(res => {
-        setUsers(res.data)
-      setLoaded(true)
-    })
-    .catch(err => {
-      console.log(err)
 
-    })
+  useEffect(() => {
+    axios.get('http://localhost:8000/api/posts/' + id)
+      .then(res => {
+        setPost(res.data)
+        setLoaded(true)
+      })
+      .catch(err => {
+        console.log(err)
+
+      })
   }, [])
-  const formSubmitted = car => {
-    axios.put('http://localhost:8000/api/cars/' + carId, car)
-    .then(res => {
-      console.log(res)
-      Navigate('/list')
-    })
-    .catch(err => {
-      setErrors(err.response.data.message)
-    })
+  const formSubmitted = post => {
+    axios.put('http://localhost:8000/api/posts/' + id, post)
+      .then(res => {
+        console.log(res)
+        Navigate('/list')
+      })
+      .catch(err => {
+        setErrors(err.response.data.message)
+      })
   }
 
   return (
     <div className='row'>
-      {
-        loaded?
+      {loaded ?
         <>
-        <CarForm car={car} formAction={"update car"} formSubmitted={formSubmitted} errors={errors}/>
-
+          <DeleteButton id={id} />
+          <Form post={post} formAction={"update post"} formSubmitted={formSubmitted} errors={errors} />
         </>
         :
         <p>Loading...</p>

@@ -10,12 +10,11 @@ class UserController {
             await user.save();
 
             const token = jwt.sign({ _id: user._id }, process.env.SECRET_KEY);
-
             res.cookie('token', token, {
                 httpOnly: true,
                 secure: true,
                 sameSite: 'None'
-            });
+            })
 
             res.status(201).json({ msg: 'Successfully created user', user, token });
         } catch (error) {
@@ -39,13 +38,11 @@ class UserController {
             }
 
             const token = jwt.sign({ _id: user._id }, process.env.SECRET_KEY);
-
             res.cookie('token', token, {
                 httpOnly: true,
                 secure: true,
                 sameSite: 'None'
-            });
-
+            })
             res.json({ msg: 'Login successful', token });
         } catch (error) {
             res.status(500).json({ error: 'Failed to log in' });
@@ -57,11 +54,9 @@ class UserController {
             const token = req.cookies.token;
             const decodedToken = jwt.verify(token, process.env.SECRET_KEY);
             const user = await User.findById(decodedToken._id);
-
             if (!user) {
                 return res.status(404).json({ msg: 'User not found' });
             }
-
             res.json({ user });
         } catch (error) {
             res.status(500).json({ error: 'Failed to retrieve logged-in user' });
