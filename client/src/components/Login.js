@@ -100,7 +100,6 @@ const Login = () => {
                             type="email"
                             value={emailAddress}
                             onChange={(e) => setEmailAddress(e.target.value)}
-                        // required
                         />
                     </div>
                     <div className="d-flex justify-content-between w-100 align-items-center">
@@ -109,7 +108,6 @@ const Login = () => {
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                        // required
                         />
                     </div>
                 </StyledSection>
