@@ -1,10 +1,9 @@
-import React from 'react'
-import Form from '../components/Form'
-import DeleteButton from '../components/DeleteButton'
-import axios from 'axios'
-import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import Form from '../components/Form'
+import React from 'react'
+import axios from 'axios'
 
 const Update = (props) => {
   const { user } = props
@@ -14,7 +13,7 @@ const Update = (props) => {
   const [loaded, setLoaded] = useState(false)
   const [errors, setErrors] = useState([])
   const pic = 'https://ik.imagekit.io/shadid/copy-space-woman-exercising-boxing.jpg?updatedAt=1688601096484'
-  console.log(id)
+
   useEffect(() => {
     axios.get('http://localhost:8000/api/posts/' + id)
       .then(res => {
@@ -24,9 +23,9 @@ const Update = (props) => {
       })
       .catch(err => {
         console.log(err)
-
       })
   }, [])
+
   const formSubmitted = post => {
     axios.put('http://localhost:8000/api/posts/' + id, post)
       .then(res => {
