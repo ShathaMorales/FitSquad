@@ -1,12 +1,25 @@
 import React from "react";
+import { Typography, Container, Button } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col } from "react-bootstrap";
 import Footer from '../components/Footer'
 import Navbar from "../components/Navbar";
-
-import { Container } from '@mui/material';
+import { Link } from "react-router-dom";
 
 const BackgroundVideo = () => {
+    const ContentContainer = styled(Container)(({ theme }) => ({
+        marginTop: theme.spacing(7),
+        color: "#fff",
+        padding: "40px",
+        textAlign: "center",
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        zIndex: "999",
+    }))
+
     return (
         <>
             <Navbar />
@@ -17,6 +30,7 @@ const BackgroundVideo = () => {
                     alignItems: "center",
                     width: "100%",
                     height: "90vh",
+                    position: "relative",
                 }}
             >
                 <video
@@ -30,10 +44,16 @@ const BackgroundVideo = () => {
                         type="video/mp4"
                     />
                 </video>
+                <ContentContainer>
+                    <Button variant="contained" style={{ backgroundColor: "#ff8f00", color: "#fff" }}
+                        size="large">
+                        <Link to="/register">Join Now!</Link>
+                    </Button>
+                </ContentContainer>
             </div>
         </>
-    );
-};
+    )
+}
 
 const Main = () => {
     const zoomInStyle = {
@@ -47,7 +67,7 @@ const Main = () => {
     const imageStyle = {
         width: "50%",
         ...zoomInStyle,
-    };
+    }
 
     return (
         <>
