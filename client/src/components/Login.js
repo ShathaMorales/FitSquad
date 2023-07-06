@@ -80,7 +80,7 @@ const Login = () => {
             .post('http://localhost:8000/api/login', { emailAddress, password }, { withCredentials: true })
             .then((response) => {
                 console.log(response);
-                navigate('/');
+                navigate('/add');
             })
             .catch((error) => {
                 console.error(error.response.data);
