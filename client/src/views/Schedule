@@ -1,0 +1,19 @@
+import PostCard from "../components/PostCard";
+import React from "react";
+
+const Schedule = (props) => {
+    const removeFromDom = (id) => {
+        console.log('deletefrom dom')
+        props.setPosts(props.posts.filter(post => post._id !== id))
+    }
+    return (
+        <div className='row'>
+            {
+                props.posts.map((post, idx) => {
+                    return <PostCard post={post} key={idx} successDelete={removeFromDom} />
+                })}
+        </div>
+    )
+}
+
+export default Schedule;
