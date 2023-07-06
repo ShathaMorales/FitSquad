@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const Navbar = (props) => {
     const { user, setUser } = props;
-
+    console.log(user)
     const linkStyle = {
         color: "#000",
         fontSize: "1.5rem",
@@ -13,13 +13,14 @@ const Navbar = (props) => {
     }
 
     const logout = () => {
-        localStorage.removeItem('user');
-        setUser(null);
+
+
         axios
             .get('http://localhost:8000/api/users/logout', { withCredentials: true })
             .then((res) => {
-                document.location.reload();
                 console.log(res);
+                window.location.reload();
+
             }
             )
             .catch((err) => {
@@ -44,20 +45,21 @@ const Navbar = (props) => {
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/about" style={linkStyle}>
-                            About
+                        <Link className="nav-link" to="/add" style={linkStyle}>
+                            Add Excersise
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/login" style={linkStyle}>
-                            Login
-                        </Link>
+
                     </li>
                     <li className="nav-item">
                         {user ?
                             <Link className="nav-link" onClick={logout} style={linkStyle}>
                                 Logout
-                            </Link> : ""
+                            </Link> :
+                            <Link className="nav-link" to="/login" style={linkStyle}>
+                                Login
+                            </Link>
                         }
                     </li>
                 </ul>
