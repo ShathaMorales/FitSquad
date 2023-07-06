@@ -92,7 +92,7 @@ const Register = () => {
                 setPassword('');
                 setConfirmPassword('');
                 setErrors([]);
-                navigate('/');
+                navigate('/login');
             })
             .catch((res) => {
 
