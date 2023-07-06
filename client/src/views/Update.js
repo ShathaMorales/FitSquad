@@ -6,16 +6,19 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 
-const Update = () => {
+const Update = (props) => {
+  const { user } = props
   const Navigate = useNavigate()
   const [post, setPost] = useState([])
   const { id } = useParams()
   const [loaded, setLoaded] = useState(false)
   const [errors, setErrors] = useState([])
-
+  const pic = 'https://ik.imagekit.io/shadid/copy-space-woman-exercising-boxing.jpg?updatedAt=1688601096484'
+  console.log(id)
   useEffect(() => {
     axios.get('http://localhost:8000/api/posts/' + id)
       .then(res => {
+        console.log(res)
         setPost(res.data)
         setLoaded(true)
       })
@@ -39,8 +42,7 @@ const Update = () => {
     <div className='row'>
       {loaded ?
         <>
-          <DeleteButton id={id} />
-          <Form post={post} formAction={"update post"} formSubmitted={formSubmitted} errors={errors} />
+          <Form post={post} user={user} id={id} pic={pic} isUpdate={true} formAction={"Update Excersise"} formSubmitted={formSubmitted} errors={errors} />
         </>
         :
         <p>Loading...</p>
