@@ -14,7 +14,7 @@ const Add = (props) => {
     axios.post('http://localhost:8000/api/posts', add)
       .then((res) => {
         console.log(res);
-        navigate('/detail/${post._id}');
+        navigate('/schedule');
       })
       .catch((err) => {
         console.log(err);
