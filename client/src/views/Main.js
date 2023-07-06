@@ -7,7 +7,31 @@ import Footer from '../components/Footer'
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 
-const BackgroundVideo = () => {
+const StyledButton = styled('button')({
+    margin: '0 auto',
+    marginTop: '40px',
+    marginBottom: '15px',
+    padding: '20px',
+    borderRadius: '5px',
+    background: '#fff',
+    width: '330px',
+    border: 'none',
+    outline: 'none',
+    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.2)',
+    cursor: 'pointer',
+
+    '&:hover': {
+        backgroundColor: '#56d0f0',
+        border: '1px solid #aaf',
+    },
+});
+
+const StyledLink = styled(Link)({
+    textDecoration: 'none',
+    color: '#000',
+});
+
+const BackgroundVideo = (props) => {
     const ContentContainer = styled(Container)(({ theme }) => ({
         marginTop: theme.spacing(7),
         color: "#fff",
@@ -20,9 +44,10 @@ const BackgroundVideo = () => {
         zIndex: "999",
     }))
 
+
     return (
         <>
-            <Navbar />
+            <Navbar user={props.user} />
             <div
                 style={{
                     display: "flex",
@@ -45,17 +70,17 @@ const BackgroundVideo = () => {
                     />
                 </video>
                 <ContentContainer>
-                    <Button variant="contained" style={{ backgroundColor: "#ff8f00", color: "#fff" }}
+                    <StyledButton variant="contained" style={{ backgroundColor: "#ff8f00", color: "#fff" }}
                         size="large">
-                        <Link to="/register">Join Now!</Link>
-                    </Button>
+                        <StyledLink to="/register"><strong>Join Now!</strong></StyledLink>
+                    </StyledButton>
                 </ContentContainer>
             </div>
         </>
     )
 }
 
-const Main = () => {
+const Main = (props) => {
     const zoomInStyle = {
         transition: "transform 0.2s ease",
     };
@@ -71,7 +96,7 @@ const Main = () => {
 
     return (
         <>
-            <BackgroundVideo />
+            <BackgroundVideo user={props.user} />
             <Container className="mt-5 mb-5 text-center justify-content-center">
                 <Row className="d-flex">
                     <Col md={3}>
