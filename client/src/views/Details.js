@@ -1,8 +1,14 @@
 import { Link, useParams } from 'react-router-dom'
 import React, { useEffect } from 'react'
+import Navbar from '../components/Navbar';
 import styled from 'styled-components';
 import { useState } from 'react'
 import axios from 'axios'
+
+const StyledLink = styled(Link)({
+    textDecoration: 'none',
+    color: '#000',
+})
 
 const StyledButton = styled.button`
 margin:0 auto;
@@ -21,7 +27,7 @@ box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 `;
 
-const Details = () => {
+const Details = (props) => {
     const [post, setPost] = useState({})
     let { id } = useParams()
     useEffect(() => {
@@ -35,15 +41,16 @@ const Details = () => {
     }, [])
 
     return (
-        <div className='container mt-5'>
-            <div className="row">
+        <div className='container' >
+            <Navbar user={props.user} />
+            <div className="row" style={{ marginTop: '100px' }}>
                 <div className='col-5'>
                     <img src={post.Url} alt={post.title} className='w-100 h-100vh' />
                 </div>
                 <div className='col-7'>
                     <h1>{post.title}</h1>
                     <p>{post.description}</p>
-                    <StyledButton><Link to={`/edit/${post._id}`}>Edit</Link></StyledButton>
+                    <StyledButton><StyledLink to={`/edit/${post._id}`}>Edit</StyledLink></StyledButton>
                 </div>
             </div>
         </div>
