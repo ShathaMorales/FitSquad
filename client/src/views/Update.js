@@ -31,7 +31,7 @@ const Update = (props) => {
     axios.put('http://localhost:8000/api/posts/' + id, post)
       .then(res => {
         console.log(res)
-        Navigate('/list')
+        Navigate('/schedule')
       })
       .catch(err => {
         setErrors(err.response.data.message)
