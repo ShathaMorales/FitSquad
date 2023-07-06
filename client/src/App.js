@@ -25,13 +25,24 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/schedule" element={<Calender />} />
+        {
+          user ?
+            <><Route path="/schedule" element={<Calender user={user} />} />
+              <Route path="/add" element={<Add user={user} />} />
+            </>
+            :
+            <><Route path="/schedule" element={<Login />} />
+              <Route path="/add" element={<Login />} />
+            </>
+        }
+        <Route path="/edit/:id" element={<Update user={user} />} />
+        <Route path="/detail/:id" element={<Details user={user} />} />
+
         <Route path="/" element={<Main user={user} />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/add" element={<Add user={user} />} />
-        <Route path="/edit/:id" element={<Update user={user} />} />
-        <Route path="/detail/:id" element={<Details />} />
+
+
 
       </Routes>
     </div>
