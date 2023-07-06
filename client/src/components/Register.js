@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 import axios from 'axios';
 import './Login.css'
-import styled from 'styled-components';
 
 const LoginFormContainer = styled.div`
 display: grid;
@@ -73,7 +73,6 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
         const newUser = {
             firstName,
             lastName,
@@ -95,7 +94,6 @@ const Register = () => {
                 navigate('/login');
             })
             .catch((res) => {
-
                 const errorResponse = res.response.data.errors;
                 console.log(errorResponse)
                 const errorArr = [];
@@ -125,7 +123,6 @@ const Register = () => {
                             type="text"
                             value={firstName}
                             onChange={(e) => setFirstName(e.target.value)}
-                        // required
                         />
                     </div>
                     <div className="d-flex justify-content-between w-100 align-items-center">
@@ -134,7 +131,6 @@ const Register = () => {
                             type="text"
                             value={lastName}
                             onChange={(e) => setLastName(e.target.value)}
-                        // required
                         />
                     </div>
                     <div className="d-flex justify-content-between w-100 align-items-center">
@@ -143,7 +139,6 @@ const Register = () => {
                             type="email"
                             value={emailAddress}
                             onChange={(e) => setEmailAddress(e.target.value)}
-                        // required
                         />
                     </div>
                     <div className="d-flex justify-content-between w-100 align-items-center">
@@ -152,7 +147,6 @@ const Register = () => {
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                        // required
                         />
                     </div>
                     <div className="d-flex justify-content-between w-100 align-items-center">
@@ -161,7 +155,6 @@ const Register = () => {
                             type="password"
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
-                        // required
                         />
                     </div>
                 </StyledSection>
