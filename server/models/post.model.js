@@ -17,7 +17,14 @@ const PostSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User', // Reference the User model
         required: true,
-    }
+    },
+    day: {
+        type: String,
+        enum: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        default: 'Monday',
+    },
+}, { timestamps: true
+
 })
 
 module.exports = mongoose.model('Post', PostSchema);

@@ -1,11 +1,28 @@
-const express = require('express');
-const cors = require('cors');
+const express = require("express");
+const cors = require("cors")
+const cookies = require("cookie-parser");
+
+const port = 8000;
+
 const app = express();
-require('./config/mongoose.config');
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-require('./routes/user.routes')(app);
-app.listen(8000, () => {
-    console.log("Listening at Port 8000")
-})
+
+app.use(cors({credentials: true, origin: "http://localhost:3000"
+}));
+
+app.use(express.json())
+app.use(express.urlencoded({ extended: true })); // for parsing URL-encoded bodies
+
+app.use(cookies());
+
+
+//require our mongoose config file and tell it about the db name
+require("./config/mongoose.config")
+
+//require our routes and tell it about our app
+require("./routes/user.routes")(app)
+
+
+app.listen(
+    port,
+    ()=> console.log("listening on port", port)
+)

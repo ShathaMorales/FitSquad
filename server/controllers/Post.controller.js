@@ -4,12 +4,13 @@ const User = require('../models/user.model');
 module.exports = {
     createPost: (req, res) => {
         console.log(req.body)
-        const { title, Url, description, user } = req.body;
+        const { title, Url, description, user, day } = req.body;
         const post = new Post({
             title: title,
             Url: Url,
             description: description,
-            user: user
+            user: user,
+            day: day,
         })
 
         post.save()
@@ -31,6 +32,7 @@ module.exports.getAllPosts = (request, response) => {
 }
 
 module.exports.getPost = (request, response) => {
+    console.log(request.params.id)
     Post.findOne({ _id: request.params.id })
         .then(post => response.json(post))
         .catch(err => response.status(400).json(err))
