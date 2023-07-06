@@ -1,15 +1,14 @@
-import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import Login from './components/Login';
 import Register from './components/Register';
-import Main from './views/Main';
-import Update from './views/Update';
+import { useEffect, useState } from 'react';
+import Schedule from './views/Schedule';
+import Login from './components/Login';
 import Details from './views/Details';
+import Update from './views/Update';
+import Main from './views/Main';
 import Add from './views/Add';
-import { useEffect } from 'react';
 import axios from 'axios';
-import { useState } from 'react';
-
+import './App.css';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -32,6 +31,7 @@ function App() {
         <Route path="/add" element={<Add user={user} />} />
         <Route path="/edit/:id" element={<Update user={user} />} />
         <Route path="/detail/:id" element={<Details />} />
+        <Route path="/schedule" element={<Schedule />} />
       </Routes>
     </div>
   );
