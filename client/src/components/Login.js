@@ -77,14 +77,14 @@ const Login = () => {
         }
 
         axios
-            .post('http://localhost:8000/api/login', { emailAddress, password })
+            .post('http://localhost:8000/api/login', { emailAddress, password }, { withCredentials: true })
             .then((response) => {
-                console.log(response.data);
+                console.log(response);
                 navigate('/');
             })
             .catch((error) => {
                 console.error(error.response.data);
-                setErrorMessage(error.response.data.message);
+                setErrorMessage(error.response.data.msg);
             })
     }
 
