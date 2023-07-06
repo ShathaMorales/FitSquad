@@ -6,6 +6,8 @@ import axios from 'axios';
 const Add = (props) => {
   const [errors, setErrors] = React.useState([]);
   const navigate = useNavigate();
+  const { user } = props;
+  const pic = 'https://ik.imagekit.io/shadid/young-beautiful-woman-bright-sportwear-isolated-gradient-pink-blue-background-neon-light.jpg?updatedAt=1688593548828'
 
   const create = (add) => {
     console.log(add)
@@ -22,7 +24,7 @@ const Add = (props) => {
 
   return (
     <div>
-      <Form formSubmitted={create} formAction={'add Training'} errors={errors} />
+      <Form formSubmitted={create} id={''} pic={pic} isUpdate={false} user={user} formAction={'Add Excersise'} errors={errors} />
     </div>
   )
 }
