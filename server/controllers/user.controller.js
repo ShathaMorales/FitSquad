@@ -3,8 +3,6 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { secret } = require("../config/jwt.config");
 
-
-
 class UserController {
     async register(req, res) {
         try {
@@ -83,17 +81,24 @@ class UserController {
         }
     }
 
+    // logout(req, res) {
+    //     res.clearCookie('token');
+    //     res.json({ msg: 'Successful Logout!' });
+    // }
+
     logout(req, res) {
-        res.clearCookie('token');
-        res.json({ msg: 'Successful Logout!' });
+        res.cookie("usertoken", jwt.sign({ _id: "" }, secret), {
+            httpOnly: true,
+            maxAge: 0
+        }).json({ msg: "ok" })
     }
+
     getLoggedInUser(req, res) {
         const decodedJWT = jwt.decode(req.cookies.usertoken, { complete: true });
         console.log(req.cookies.usertoken)
         User.findById(decodedJWT.payload._id)
             .then(user => res.json({ user }))
             .catch(err => res.json(err))
-
     }
 }
 
