@@ -6,7 +6,6 @@ import Select from 'react-select';
 import axios from 'axios';
 import DeleteButton from './DeleteButton';
 
-
 const FormContainer = styled.div`
   display: flex;
   justify-content: center;
