@@ -1,8 +1,8 @@
+import { Link, useParams } from 'react-router-dom'
 import React, { useEffect } from 'react'
-import axios from 'axios'
 import styled from 'styled-components';
 import { useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import axios from 'axios'
 
 const StyledButton = styled.button`
 margin:0 auto;
@@ -20,6 +20,7 @@ box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     border: 1px solid #aaf;
 }
 `;
+
 const Details = () => {
     const [post, setPost] = useState({})
     let { id } = useParams()
