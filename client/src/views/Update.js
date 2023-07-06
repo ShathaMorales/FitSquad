@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Form from '../components/Form'
+import Navbar from '../components/Navbar'
 import React from 'react'
 import axios from 'axios'
 
@@ -41,6 +42,7 @@ const Update = (props) => {
     <div className='row'>
       {loaded ?
         <>
+          <Navbar user={props.user} />
           <Form post={post} user={user} id={id} pic={pic} isUpdate={true} formAction={"Update Excersise"} formSubmitted={formSubmitted} errors={errors} />
         </>
         :
