@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar'
 import Form from '../components/Form';
 import React from 'react';
 import axios from 'axios';
@@ -13,7 +14,7 @@ const Add = (props) => {
     console.log(add)
     axios.post('http://localhost:8000/api/posts', add)
       .then((res) => {
-        console.log(res);
+        console.log(res.data._id);
         navigate('/schedule');
       })
       .catch((err) => {
@@ -24,6 +25,7 @@ const Add = (props) => {
 
   return (
     <div>
+      <Navbar user={props.user} />
       <Form formSubmitted={create} id={''} pic={pic} isUpdate={false} user={user} formAction={'Add Excersise'} errors={errors} />
     </div>
   )
