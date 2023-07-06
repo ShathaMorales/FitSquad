@@ -1,10 +1,9 @@
-import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import DeleteButton from './DeleteButton';
 import styled from 'styled-components';
 import { useEffect } from 'react';
 import Select from 'react-select';
-import axios from 'axios';
-import DeleteButton from './DeleteButton';
+import React from 'react';
 
 const FormContainer = styled.div`
   display: flex;
@@ -16,21 +15,6 @@ const FormContainer = styled.div`
   background-position: center;
   background-repeat: no-repeat;
 `;
-
-
-// const FormContainer = styled.div`
-// display: grid;
-// grid-template-columns: 1fr minmax(200px, 400px) 1fr;
-// grid-template-rows: 1fr minmax(auto, 1fr) 1fr;
-// grid-gap: 10px;
-// width: 100%;
-// height: 100vh;
-// background-image:"https://ik.imagekit.io/shadid/young-beautiful-woman-bright-sportwear-isolated-gradient-pink-blue-background-neon-light.jpg?updatedAt=1688593548828"
-// // background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
-// background-size: 400% 400%;
-// // animation: Gradient 15s ease infinite;
-// box-sizing: border-box;
-// `;
 
 const StyledForm = styled.form`
 grid-column: 2;
@@ -91,7 +75,6 @@ const Form = (props) => {
       description,
       user: user._id,
       day: day.valueو
-
     })
   }
   const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
@@ -103,7 +86,6 @@ const Form = (props) => {
       setDescription(props.post.description);
     }
   }, [props.post]);
-
 
 
   return (
