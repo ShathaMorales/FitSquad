@@ -12,8 +12,7 @@
 - [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
 - [Project Description](#project-description)
-- [Useful Links](#useful-links)
-- [Acknowledgements](#acknowledgements)
+
 
 ### Owners Features
 - **Owners Profiles**: Owners can create  profiles that allow them to manage their training , view their Personalized Fitness Plans.
@@ -22,7 +21,7 @@
 - **Personalized Recommendations**: By analyzing user activity and preferences, FitSquad's algorithms provide personalized recommendations. Whether it's suggesting new workout plans, nutrition advice, or upcoming fitness events.
 
 
-# Contributers
+# Contributors
 The success of this project was made possible by :
 - [Shatha Morales](https://github.com/ShathaMorales).
 
