@@ -43,7 +43,7 @@ If you wish to be part of this ongoing project, we encourage you to connect with
 
   - [imagekit API](https://imagekit.io/)
 
-  hr>
+ <hr>
 
 # Project Description
 
@@ -75,7 +75,7 @@ If you wish to be part of this ongoing project, we encourage you to connect with
 
   ### Delete and Edit the Exercise Page
 - Delete and Edit the Exercise: The personal trainer can delete or edit the exercise
-   ![Show Exercise](https://ik.imagekit.io/shadid/four.png?updatedAt=1690900205250)
+   ![Show Exercise](https://ik.imagekit.io/shadid/six.png?updatedAt=1690900209536)
 
 
   
