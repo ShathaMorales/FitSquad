@@ -10,7 +10,6 @@
 - [User Features](#Owners-features)
 - [Contributors](#contributors)
 - [Technologies Used](#technologies-used)
-- [Getting Started](#getting-started)
 - [Project Description](#project-description)
 
 
