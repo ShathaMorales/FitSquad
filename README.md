@@ -24,6 +24,7 @@
 # Contributors
 The success of this project was made possible by :
 - [Shatha Morales](https://github.com/ShathaMorales).
+-  [Mohammed Shadid](https://github.com/mohadshadid).
 
 
  ### Scrum master 
